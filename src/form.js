@@ -26,8 +26,8 @@ class Form extends React.Component {
       <div id='form'>
         <form onSubmit={this.handleSubmit}>
           <label>URL:</label>
-          <input type="text" id="url" name="url"onChange={this.handleChange}></input>
-          <input className="action" type="submit" value="Go" ></input><br></br>
+          <input type="text" id="url" placeholder="http://api.url.here" name="url"onChange={this.handleChange}></input>
+          <input className="action" type="submit" value="GO!" ></input><br></br>
           <input className="button" type="button" value="GET" onClick={() => this.setState({method: 'GET'})}></input>
           <input className="button" type="button" value="POST" onClick={() => this.setState({method: 'POST'})}></input>
           <input className="button" type="button" value="PUT" onClick={() => this.setState({method: 'PUT'})}></input>

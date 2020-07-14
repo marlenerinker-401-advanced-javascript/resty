@@ -1,7 +1,12 @@
+$grey-text: rgb(29, 28, 28);
+$font-size: 20px;
 #form {
-  
+ 
+
+ font-size: $font-size;
  padding: 20px;
  height: 200px;
+ text-align: center;
 
  section {
    border-style: solid;
@@ -9,15 +14,24 @@
    border-color: black;
    padding-left: 10px;
    height: 100px;
+   background-color: white;
+ }
+
+ #url {
+   background-color: white;
+   font-size: $font-size;
  }
 
  .button {
 
    margin: 10px;
    margin-left: 0;
+   background-color: white;
+   border-radius: 5px;
+   font-size: $font-size;
  }
  .button:focus {
-   background-color: black;
+   background-color: grey;
    color: white;
  }
 
@@ -27,15 +41,17 @@
 
  .action {
    margin: 8px;
+   font-size: $font-size;
  }
 
  .action:active {
-   background-color: black;
+   background-color: grey;
    color: white;
    transform: translateY(2px);
  }
 
   p {
-    color: rgb(29, 28, 28);
+    text-align: left;
+    color:$grey-text;
   }
 }
