@@ -5,7 +5,7 @@ This project contains an application which is an API testing tool.
 
 ### Author: Marlene Rinker
 
-- [Submission PR](https://github.com/marlenerinker-401-advanced-javascript/caps/pull/6)
+- [Submission PR](https://github.com/marlenerinker-401-advanced-javascript/resty/pull/1)
 <!-- - [Tests Report](https://github.com/marlenerinker-401-advanced-javascript/caps/actions)
 - [Swagger Hub](https://app.swaggerhub.com/apis/marlene-rinker/api-server/0.1#/)
 - [Heroku deployment](https://app-server-mr401.herokuapp.com/) -->
