@@ -7,7 +7,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='header'>
         <h1>RESTy</h1>
       </div>
     );

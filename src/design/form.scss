@@ -1,0 +1,41 @@
+#form {
+  
+ padding: 20px;
+ height: 200px;
+
+ section {
+   border-style: solid;
+   border-width: 1px;
+   border-color: black;
+   padding-left: 10px;
+   height: 100px;
+ }
+
+ .button {
+
+   margin: 10px;
+   margin-left: 0;
+ }
+ .button:focus {
+   background-color: black;
+   color: white;
+ }
+
+ label {
+   padding-right: 8px;
+ }
+
+ .action {
+   margin: 8px;
+ }
+
+ .action:active {
+   background-color: black;
+   color: white;
+   transform: translateY(2px);
+ }
+
+  p {
+    color: rgb(29, 28, 28);
+  }
+}
