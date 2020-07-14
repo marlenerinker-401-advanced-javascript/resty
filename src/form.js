@@ -5,19 +5,25 @@ class Form extends React.Component {
     super(props);
     this.state = {
       method: '',
-      value: '',
+      url: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOption = this.handleOption.bind(this);
   }
 
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({url: event.target.value});
+  }
+
+  handleOption(event) {
+    event.preventDefault();
+    this.setState({method: event.target.value});
   }
 
   handleSubmit(event) {
-    console.log('A URL was submitted: ', this.state.value);
+    console.log('A URL was submitted: ', this.state.url);
     event.preventDefault();
   }
 
@@ -28,13 +34,13 @@ class Form extends React.Component {
           <label>URL:</label>
           <input type="text" id="url" placeholder="http://api.url.here" name="url"onChange={this.handleChange}></input>
           <input className="action" type="submit" value="GO!" ></input><br></br>
-          <input className="button" type="button" value="GET" onClick={() => this.setState({method: 'GET'})}></input>
-          <input className="button" type="button" value="POST" onClick={() => this.setState({method: 'POST'})}></input>
-          <input className="button" type="button" value="PUT" onClick={() => this.setState({method: 'PUT'})}></input>
-          <input className="button" type="button" value="DELETE" onClick={() => this.setState({method: 'DELETE'})}></input>
+          <input className="button" type="button" value="GET" onClick={this.handleOption}></input>
+          <input className="button" type="button" value="POST" onClick={this.handleOption}></input>
+          <input className="button" type="button" value="PUT" onClick={this.handleOption}></input>
+          <input className="button" type="button" value="DELETE" onClick={this.handleOption}></input>
         </form>
         <section>
-          <p>{this.state.method} {this.state.value}</p>
+          <p>{this.state.method} {this.state.url}</p>
         </section>
       </div>
     );
