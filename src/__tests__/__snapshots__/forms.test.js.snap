@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form tests renders correctly 1`] = `
+<div
+  id="form"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      URL:
+    </label>
+    <input
+      id="url"
+      name="url"
+      onChange={[Function]}
+      placeholder="http://api.url.here"
+      type="text"
+    />
+    <input
+      className="action"
+      type="submit"
+      value="GO!"
+    />
+    <br />
+    <input
+      className="button"
+      onClick={[Function]}
+      type="button"
+      value="GET"
+    />
+    <input
+      className="button"
+      onClick={[Function]}
+      type="button"
+      value="POST"
+    />
+    <input
+      className="button"
+      onClick={[Function]}
+      type="button"
+      value="PUT"
+    />
+    <input
+      className="button"
+      onClick={[Function]}
+      type="button"
+      value="DELETE"
+    />
+  </form>
+  <section>
+    <p>
+      
+    </p>
+  </section>
+</div>
+`;

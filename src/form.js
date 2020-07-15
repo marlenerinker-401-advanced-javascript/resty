@@ -6,6 +6,7 @@ class Form extends React.Component {
     this.state = {
       method: '',
       url: '',
+      display: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,6 +26,7 @@ class Form extends React.Component {
   handleSubmit(event) {
     console.log('A URL was submitted: ', this.state.url);
     event.preventDefault();
+    this.setState({display: this.state.method + ' ' + this.state.url});
   }
 
   render() {
@@ -40,7 +42,7 @@ class Form extends React.Component {
           <input className="button" type="button" value="DELETE" onClick={this.handleOption}></input>
         </form>
         <section>
-          <p>{this.state.method} {this.state.url}</p>
+          <p>{this.state.display}</p>
         </section>
       </div>
     );
