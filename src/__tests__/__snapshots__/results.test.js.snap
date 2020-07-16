@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results tests renders correctly 1`] = `
+<div
+  id="results"
+>
+  <p
+    id="count"
+  >
+    API Total Count: 
+    2
+  </p>
+  <p
+    id="item-count"
+  >
+    Returned Count: 
+    2
+  </p>
+  <ul
+    id="items"
+  >
+    <li>
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<pre class=\\"__json-pretty__\\">{
+  \\"<span class=\\"__json-key__\\">name</span>\\": <span class=\\"__json-string__\\">\\"test\\"</span>
+}</pre>",
+          }
+        }
+        id="json-pretty"
+      />
+    </li>
+    <li>
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<pre class=\\"__json-pretty__\\">{
+  \\"<span class=\\"__json-key__\\">name</span>\\": <span class=\\"__json-string__\\">\\"test2\\"</span>
+}</pre>",
+          }
+        }
+        id="json-pretty"
+      />
+    </li>
+  </ul>
+</div>
+`;

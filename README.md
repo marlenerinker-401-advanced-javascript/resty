@@ -48,8 +48,10 @@ npm start
   - Test that the state is updated when the user clicks PUT
   - Test that the state is updated when the user clicks DELETE
   - Test that the state is updated when the user enters a URL
-  - Test that the display is updated when the user clicks GO!
   - Test that the displayed form matches the snapshot
+  - Test that the results render when the application starts
+  - Test that the results render when there is data
+  - Test that the displayed results match the snapshot
 
 
 
