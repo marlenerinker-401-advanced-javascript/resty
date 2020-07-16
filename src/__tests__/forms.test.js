@@ -9,16 +9,14 @@ describe('Form tests', () => {
   it('should render at application start', () => {
     let app = shallow(<Form />);
     expect(app.find('form').exists()).toBe(true);
-    expect(app.find('section').exists()).toBe(true);
     expect(app.find('input').exists()).toBe(true);
-    expect(app.find('p').exists()).toBe(true);
   });
 
   it('should update state when click GET', () => {
     let app = mount(<Form />);
     let button = app.find({className: 'button', value: 'GET'});
     expect(button.exists()).toBeTruthy();
-    expect(app.state('method')).toBe('');
+    expect(app.state('method')).toBe('GET');
     button.simulate('click');
     expect(app.state('method')).toBe('GET');
   });
@@ -27,7 +25,7 @@ describe('Form tests', () => {
     let app = mount(<Form />);
     let button = app.find({className: 'button', value: 'POST'});
     expect(button.exists()).toBeTruthy();
-    expect(app.state('method')).toBe('');
+    expect(app.state('method')).toBe('GET');
     button.simulate('click');
     expect(app.state('method')).toBe('POST');
   });
@@ -36,7 +34,7 @@ describe('Form tests', () => {
     let app = mount(<Form />);
     let button = app.find({className: 'button', value: 'PUT'});
     expect(button.exists()).toBeTruthy();
-    expect(app.state('method')).toBe('');
+    expect(app.state('method')).toBe('GET');
     button.simulate('click');
     expect(app.state('method')).toBe('PUT');
   });
@@ -45,7 +43,7 @@ describe('Form tests', () => {
     let app = mount(<Form />);
     let button = app.find({className: 'button', value: 'DELETE'});
     expect(button.exists()).toBeTruthy();
-    expect(app.state('method')).toBe('');
+    expect(app.state('method')).toBe('GET');
     button.simulate('click');
     expect(app.state('method')).toBe('DELETE');
   });
@@ -57,18 +55,6 @@ describe('Form tests', () => {
     expect(app.state('url')).toBe('test.com');
   });
 
-  it('should display selected method and URL that was entered', () => {
-    let app = mount(<Form />);
-    let input = app.find('#url');
-    let button = app.find({className: 'button', value: 'POST'});
-    let form = app.find('form');
-    button.simulate('click');
-    expect(app.state('method')).toBe('POST');
-    input.simulate('change', { target: {value: 'test.com'}});
-    expect(app.state('url')).toBe('test.com');
-    form.simulate('submit');
-    expect(app.state('display')).toBe('POST test.com');
-  });
 
   it('renders correctly', () => {
     const DOM = renderer.create(<Form />).toJSON();

@@ -4,7 +4,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      method: '',
+      method: 'GET',
       url: '',
       display: '',
     };
@@ -23,10 +23,16 @@ class Form extends React.Component {
     this.setState({method: event.target.value});
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     console.log('A URL was submitted: ', this.state.url);
     event.preventDefault();
-    this.setState({display: this.state.method + ' ' + this.state.url});
+    let data = await fetch(this.state.url);
+    let json = await data.json();
+    console.log(json);
+
+    let count = json.count;
+    let results = json.results;
+    this.props.handler(count, results);
   }
 
   render() {
@@ -36,14 +42,11 @@ class Form extends React.Component {
           <label>URL:</label>
           <input type="text" id="url" placeholder="http://api.url.here" name="url"onChange={this.handleChange}></input>
           <input className="action" type="submit" value="GO!" ></input><br></br>
-          <input className="button" type="button" value="GET" onClick={this.handleOption}></input>
+          <input className="button" type="button" value="GET" onClick={this.handleOption} autoFocus></input>
           <input className="button" type="button" value="POST" onClick={this.handleOption}></input>
           <input className="button" type="button" value="PUT" onClick={this.handleOption}></input>
           <input className="button" type="button" value="DELETE" onClick={this.handleOption}></input>
         </form>
-        <section>
-          <p>{this.state.display}</p>
-        </section>
       </div>
     );
   }
