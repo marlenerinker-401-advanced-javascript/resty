@@ -6,7 +6,6 @@ class Form extends React.Component {
     this.state = {
       method: 'GET',
       url: '',
-      display: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,15 +23,22 @@ class Form extends React.Component {
   }
 
   async handleSubmit(event) {
+    // TODO: add spinner during fetch
+
     console.log('A URL was submitted: ', this.state.url);
     event.preventDefault();
-    let data = await fetch(this.state.url);
-    let json = await data.json();
+    let restOptions = {
+      method: this.state.method,
+    };
+    let results = await fetch(this.state.url, restOptions);
+    let json = await results.json();
+    console.log(results);
     console.log(json);
 
-    let count = json.count;
-    let results = json.results;
-    this.props.handler(count, results);
+    let headers = JSON.stringify(results.headers, null, 2);
+    let data = JSON.stringify(json, null, 2);
+    let apiCall = {method: this.state.method, url: this.state.url, body: data};
+    this.props.handler(headers, data, apiCall);
   }
 
   render() {
