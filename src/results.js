@@ -7,7 +7,6 @@ class Results extends React.Component {
   // TODO: populate the URL and method on the form when you click one of the history results
   
   handlePopulate = (event) => {
-    console.log('handling re-run');
     console.log(event.target.innerHTML);
     let element = event.target.innerHTML;
     let info = element.split(' ');

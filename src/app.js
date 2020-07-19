@@ -42,10 +42,8 @@ class App extends React.Component {
   };
 
   populateForm = async(method, url) => {
-    console.log('this.state from populate form', this.state.method);
-    await this.setState({ method, url });
-    console.log('populate form: method and url ', method, url);
-    console.log('this.state from populate form', this.state.method);
+    await this.setState({ method: method, url: url });
+    
   }
 
   async archiveHistory() {
@@ -63,7 +61,7 @@ class App extends React.Component {
             <Results headers={this.state.headers} data={this.state.data} archive={this.state.archive} populate={this.populateForm}/>
           </Route>
           <Route exact path="/history">
-            <History archive={this.state.archive}/>
+            <History archive={this.state.archive} populate={this.populateForm}/>
           </Route>
           <Footer />
         </BrowserRouter>

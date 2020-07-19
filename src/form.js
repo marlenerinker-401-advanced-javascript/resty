@@ -12,7 +12,6 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOption = this.handleOption.bind(this);
-    this.setStateFromProps = this.setStateFromProps.bind(this);
   }
 
 
@@ -28,8 +27,6 @@ class Form extends React.Component {
   
   async handleSubmit(event) {
     try {
-      console.log('A URL was submitted: ', this.state.url);
-      console.log('this.state from handleSubmit: ', this.state);
       event.preventDefault();
       this.setState({ loading: true});
       let restOptions = {
@@ -59,20 +56,15 @@ class Form extends React.Component {
     }  
        
   }
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
     if(nextProps.url!==this.props.url){
-      //Perform some operation
       this.setState({url: nextProps.url });  
     }
-  }
-  setStateFromProps() {
-    if(this.props.method) {
-      this.setState({ method: this.props.method});
-    }
-    if(this.props.url) {
-      this.setState( { url: this.props.url});
+    if(nextProps.method!==this.props.method){
+      this.setState({method: nextProps.method });  
     }
   }
+  
 
   render() {
     

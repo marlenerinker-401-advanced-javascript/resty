@@ -1,30 +1,51 @@
 import React from 'react';
 import JSONPretty from 'react-json-pretty';
 import If from './if.js';
+import { withRouter } from 'react-router-dom';
+
 
 class History extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      details: false,
+      details: []
     }
-
+    
     
   }
 
-  // TODO: implement the handle re-run functionality - should re-run the API call and redirect to results page
-  handleReRun = () => {
-    console.log('handling re-run');
-    this.setState( {details: false});
+  handleRedirect = () => {
+    this.props.history.push('/');
+  }
+
+  extractContent = (s) => {
+    var span = document.createElement('span');
+    span.innerHTML = s;
+    return span.textContent || span.innerText;
   };
 
-  toggleDetails = () => {
-    console.log('showing details');
-    if (!this.state.details) {
-      this.setState( {details: true});
-      return;
-    }
-    this.setState( { details: false});
+  // TODO: implement the handle re-run functionality - should re-run the API call and redirect to results page
+  handleReRun = async(event) => {
+   
+    console.log('handling re-run');
+    let item = document.getElementById(`${event.target.className}call`);
+
+    
+    let info = this.extractContent(item.innerHTML).split(' ');
+    let method = info[0];
+    let url = info[1];
+    console.log('method is ', method);
+    console.log('url is ', url);
+    await this.handleRedirect();
+    await this.props.populate(method, url);
+  };
+
+  toggleDetails = (idx) => {    
+    
+    let temp = this.state.details;
+    temp[idx] = !temp[idx];
+    this.setState( {details: temp});
+    
   }
 
 
@@ -38,11 +59,11 @@ class History extends React.Component {
           <ul>
           {apiCall.map((item, idx) => {
           return (
-            <li key={idx}>
-              <JSONPretty id="json-pretty" data={item.method + ' ' + item.url} onClick={this.toggleDetails}></JSONPretty>
-              <If condition={this.state.details === true}>
-              <JSONPretty id="json-pretty" data={item.body}></JSONPretty>
-              <input className="button" type="button" value="Re-run" onClick={this.handleReRun}></input>
+            <li key={idx} id={idx}>
+              <JSONPretty id={idx + 'call'} data={item.method + ' ' + item.url} onClick={() => this.toggleDetails(idx)}></JSONPretty>
+              <If condition={this.state.details[idx] === true}>
+              <input className= {idx} type="button" value="Re-run" onClick={this.handleReRun}></input>
+              <JSONPretty className={idx} data={item.body}></JSONPretty>
               </If>
             </li>
             
@@ -56,4 +77,4 @@ class History extends React.Component {
 }
 
 
-export default History;
+export default withRouter(History);
