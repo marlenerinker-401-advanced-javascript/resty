@@ -50,14 +50,6 @@ class History extends React.Component {
         })}
           </ul>
         </section>
-        {/* <If condition={this.state.details === true}>
-        <section id='query-details'>
-        <input className="button" type="button" value="Re-run" onClick={this.handleReRun}></input>
-          <ul>
-            <li>query details</li>
-          </ul>
-        </section>
-        </If> */}
       </div>
     );
   }
