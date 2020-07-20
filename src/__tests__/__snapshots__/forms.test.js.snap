@@ -4,9 +4,7 @@ exports[`Form tests renders correctly 1`] = `
 <div
   id="form"
 >
-  <form
-    onSubmit={[Function]}
-  >
+  <form>
     <label>
       URL:
     </label>
@@ -16,38 +14,71 @@ exports[`Form tests renders correctly 1`] = `
       onChange={[Function]}
       placeholder="http://api.url.here"
       type="text"
+      value=""
     />
     <input
       className="action"
+      onClick={[Function]}
       type="submit"
       value="GO!"
     />
     <br />
-    <input
-      autoFocus={true}
-      className="button"
-      onClick={[Function]}
-      type="button"
-      value="GET"
-    />
-    <input
-      className="button"
-      onClick={[Function]}
-      type="button"
-      value="POST"
-    />
-    <input
-      className="button"
-      onClick={[Function]}
-      type="button"
-      value="PUT"
-    />
-    <input
-      className="button"
-      onClick={[Function]}
-      type="button"
-      value="DELETE"
-    />
+    <div
+      className="radio-toolbar"
+    >
+      <input
+        checked={true}
+        id="getButton"
+        name="button"
+        onClick={[Function]}
+        type="radio"
+        value="GET"
+      />
+      <label
+        htmlFor="getButton"
+      >
+        GET
+      </label>
+      <input
+        checked={false}
+        id="postButton"
+        name="button"
+        onClick={[Function]}
+        type="radio"
+        value="POST"
+      />
+      <label
+        htmlFor="postButton"
+      >
+        POST
+      </label>
+      <input
+        checked={false}
+        id="putButton"
+        name="button"
+        onClick={[Function]}
+        type="radio"
+        value="PUT"
+      />
+      <label
+        htmlFor="putButton"
+      >
+        PUT
+      </label>
+      <input
+        checked={false}
+        id="deleteButton"
+        name="button"
+        onClick={[Function]}
+        type="radio"
+        value="DELETE"
+      />
+      <label
+        htmlFor="deleteButton"
+      >
+        DELETE
+      </label>
+    </div>
   </form>
 </div>
 `;

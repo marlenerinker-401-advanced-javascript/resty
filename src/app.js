@@ -12,6 +12,9 @@ import './design/footer.scss';
 import './design/header.scss';
 import './design/form.scss';
 import './design/results.scss';
+import './design/history.scss';
+
+
 
 
 class App extends React.Component {
@@ -21,7 +24,9 @@ class App extends React.Component {
       headers: '',
       data: '',
       history: [],
-      archive: []
+      archive: [],
+      method: '',
+      url: ''
     }
     this.getHistory = this.archiveHistory.bind(this);
   };
@@ -30,10 +35,17 @@ class App extends React.Component {
 
   handleForm = (headers, data, apiCall) => {
     this.setState( { headers, data } );
+    if (apiCall){
     this.state.history.push(apiCall);
     localStorage.setItem('history', JSON.stringify(this.state.history));
     this.archiveHistory();
+    } 
   };
+
+  populateForm = async(method, url) => {
+    await this.setState({ method: method, url: url });
+    
+  }
 
   async archiveHistory() {
     let history = await JSON.parse(localStorage.getItem('history'));
@@ -46,11 +58,11 @@ class App extends React.Component {
         <BrowserRouter>
           <Header />
           <Route exact path="/">
-            <Form handler={this.handleForm}/>
-            <Results headers={this.state.headers} data={this.state.data} archive={this.state.archive}/>
+            <Form handler={this.handleForm} method={this.state.method} url={this.state.url}/>
+            <Results headers={this.state.headers} data={this.state.data} archive={this.state.archive} populate={this.populateForm}/>
           </Route>
           <Route exact path="/history">
-            <History archive={this.state.archive}/>
+            <History archive={this.state.archive} populate={this.populateForm}/>
           </Route>
           <Footer />
         </BrowserRouter>

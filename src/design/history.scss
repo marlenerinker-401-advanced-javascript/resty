@@ -1,8 +1,8 @@
 $grey-text: rgb(29, 28, 28);
 $font-size: 20px;
-#results {
+#history {
 
-  #details {
+  #api-calls {
     overflow: scroll;
     font-size: $font-size;
     padding: 20px;
@@ -18,18 +18,11 @@ $font-size: 20px;
 
   }
 
-  #history {
-    overflow: scroll;
-    float: left;
-    padding: 30px;
-    height: 500px;
-  }
- 
+   
 
 ul {
   text-align: left;
   text-decoration: none;
-  overflow: scroll;
 }
  
  li {
@@ -42,5 +35,10 @@ ul {
   p {
     text-align: left;
     color:$grey-text;
+  }
+
+  #intro {
+    text-align: center;
+    clear: both;
   }
 }

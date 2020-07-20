@@ -1,9 +1,12 @@
 $grey-text: rgb(29, 28, 28);
 #footer {
+
   background-color: grey;
   height: 50px;
+  display: block;
 
   p {
+    
     padding: 10px;
     color:$grey-text;
   }
