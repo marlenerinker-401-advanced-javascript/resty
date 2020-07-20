@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`History tests renders correctly 1`] = `
+<div
+  id="history"
+>
+  <p
+    id="intro"
+  >
+    This is your API call history. Click on a call to see details.
+  </p>
+  <section
+    id="api-calls"
+  >
+    <ul>
+      <li
+        id={0}
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<pre class=\\"__json-pretty-error__\\">undefined undefined</pre>",
+            }
+          }
+          id="0call"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        id={1}
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<pre class=\\"__json-pretty-error__\\">undefined undefined</pre>",
+            }
+          }
+          id="1call"
+          onClick={[Function]}
+        />
+      </li>
+    </ul>
+  </section>
+</div>
+`;

@@ -4,45 +4,72 @@ exports[`Results tests renders correctly 1`] = `
 <div
   id="results"
 >
-  <p
-    id="count"
+  <section
+    id="history"
   >
-    API Total Count: 
-    2
-  </p>
-  <p
-    id="item-count"
+    <ul>
+      <li
+        id={0}
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<pre class=\\"__json-pretty-error__\\">undefined undefined</pre>",
+            }
+          }
+          id="json-pretty"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        id={1}
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<pre class=\\"__json-pretty-error__\\">undefined undefined</pre>",
+            }
+          }
+          id="json-pretty"
+          onClick={[Function]}
+        />
+      </li>
+    </ul>
+  </section>
+  <section
+    id="details"
   >
-    Returned Count: 
-    2
-  </p>
-  <ul
-    id="items"
-  >
-    <li>
+    <ul
+      id="headers"
+    >
       <div
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<pre class=\\"__json-pretty__\\">{
-  \\"<span class=\\"__json-key__\\">name</span>\\": <span class=\\"__json-string__\\">\\"test\\"</span>
-}</pre>",
+            "__html": "<pre class=\\"__json-pretty__\\">{}</pre>",
           }
         }
         id="json-pretty"
       />
-    </li>
-    <li>
+    </ul>
+    <ul
+      id="items"
+    >
       <div
         dangerouslySetInnerHTML={
           Object {
-            "__html": "<pre class=\\"__json-pretty__\\">{
-  \\"<span class=\\"__json-key__\\">name</span>\\": <span class=\\"__json-string__\\">\\"test2\\"</span>
-}</pre>",
+            "__html": "<pre class=\\"__json-pretty__\\">[
+  {
+    \\"<span class=\\"__json-key__\\">name</span>\\": <span class=\\"__json-string__\\">\\"test\\"</span>
+  },
+  {
+    \\"<span class=\\"__json-key__\\">name</span>\\": <span class=\\"__json-string__\\">\\"test2\\"</span>
+  }
+]</pre>",
           }
         }
         id="json-pretty"
       />
-    </li>
-  </ul>
+    </ul>
+  </section>
 </div>
 `;

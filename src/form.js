@@ -9,9 +9,16 @@ class Form extends React.Component {
       url: '',
       loading: false,
     };
+    
+    this.getButton = React.createRef();
+    this.postButton = React.createRef();
+    this.putButton = React.createRef();
+    this.deleteButton = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOption = this.handleOption.bind(this);
+    
+    
   }
 
 
@@ -23,6 +30,24 @@ class Form extends React.Component {
     event.preventDefault();
     this.setState({method: event.target.value});
   }
+
+  // componentDidUpdate() {
+  //   console.log(this.state.method);
+  //   if (this.state.method === 'GET') {
+  //     this.getButton.current.select();
+  //   }
+  //   if (this.state.method === 'POST') {
+  //     this.postButton.current.select();
+  //   }
+  //   // if (this.state.method === 'PUT') {
+  //   //   this.putButton.current.focus();
+  //   // }
+  //   // if (this.state.method === 'DELETE') {
+  //   //   this.deleteButton.current.focus();
+  //   // }
+   
+  // }
+  
 
   
   async handleSubmit(event) {
@@ -64,20 +89,28 @@ class Form extends React.Component {
       this.setState({method: nextProps.method });  
     }
   }
+
+  
   
 
   render() {
     
     return (
-      <div id='form'>
-        <form onSubmit={this.handleSubmit}>
+      <div id='form' >
+        <form >
           <label>URL:</label>
-          <input type="text" id="url" placeholder="http://api.url.here" name="url"  value={this.state.url} onChange={this.handleChange}></input>
-          <input className="action" type="submit" value="GO!" ></input><br></br>
-          <input className="button" type="button" value="GET" onClick={this.handleOption} autoFocus></input>
-          <input className="button" type="button" value="POST" onClick={this.handleOption}></input>
-          <input className="button" type="button" value="PUT" onClick={this.handleOption}></input>
-          <input className="button" type="button" value="DELETE" onClick={this.handleOption}></input>
+          <input type="text" id="url" placeholder="http://api.url.here" name="url"  value={this.state.url} onChange={this.handleChange} ></input>
+          <input className="action" type="submit" value="GO!" onClick={this.handleSubmit}></input><br></br>
+          <div className="radio-toolbar">
+            <input ref ={this.getButton} id ="getButton" name ="button"  type="radio" value="GET" onClick={this.handleOption} checked={this.state.method === 'GET'}></input>
+            <label htmlFor="getButton">GET</label>
+            <input ref ={this.postButton} id ="postButton" name ="button"  type="radio" value="POST" onClick={this.handleOption} checked={this.state.method === 'POST'}></input>
+            <label htmlFor="postButton">POST</label>
+            <input ref ={this.putButton} id ="putButton" name ="button"  type="radio" value="PUT" onClick={this.handleOption} checked={this.state.method === 'PUT'}></input>
+            <label htmlFor="putButton">PUT</label>
+            <input ref ={this.deleteButton} id ="deleteButton" name ="button"  type="radio" value="DELETE" onClick={this.handleOption} checked={this.state.method === 'DELETE'}></input>
+            <label htmlFor="deleteButton">DELETE</label>
+          </div>
         </form>
         <If condition={this.state.loading === true}>
           <section className="spinner">

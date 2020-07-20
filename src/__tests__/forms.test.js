@@ -4,17 +4,18 @@ import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import Form from '../form.js';
+const testFunction = jest.fn();
 
 describe('Form tests', () => {
   it('should render at application start', () => {
-    let app = shallow(<Form />);
+    let app = shallow(<Form handler={testFunction} method={'test'} url={'test'}/>);
     expect(app.find('form').exists()).toBe(true);
     expect(app.find('input').exists()).toBe(true);
   });
 
   it('should update state when click GET', () => {
-    let app = mount(<Form />);
-    let button = app.find({className: 'button', value: 'GET'});
+    let app = mount(<Form handler={testFunction} method={'test'} url={'test'}/>);
+    let button = app.find({id: 'getButton', value: 'GET'});
     expect(button.exists()).toBeTruthy();
     expect(app.state('method')).toBe('GET');
     button.simulate('click');
@@ -22,8 +23,8 @@ describe('Form tests', () => {
   });
 
   it('should update state when click POST', () => {
-    let app = mount(<Form />);
-    let button = app.find({className: 'button', value: 'POST'});
+    let app = mount(<Form handler={testFunction} method={'test'} url={'test'}/>);
+    let button = app.find({id: 'postButton', value: 'POST'});
     expect(button.exists()).toBeTruthy();
     expect(app.state('method')).toBe('GET');
     button.simulate('click');
@@ -31,8 +32,8 @@ describe('Form tests', () => {
   });
 
   it('should update state when click PUT', () => {
-    let app = mount(<Form />);
-    let button = app.find({className: 'button', value: 'PUT'});
+    let app = mount(<Form handler={testFunction} method={'test'} url={'test'}/>);
+    let button = app.find({id: 'putButton', value: 'PUT'});
     expect(button.exists()).toBeTruthy();
     expect(app.state('method')).toBe('GET');
     button.simulate('click');
@@ -40,8 +41,8 @@ describe('Form tests', () => {
   });
 
   it('should update state when click DELETE', () => {
-    let app = mount(<Form />);
-    let button = app.find({className: 'button', value: 'DELETE'});
+    let app = mount(<Form handler={testFunction} method={'test'} url={'test'}/>);
+    let button = app.find({id: 'deleteButton', value: 'DELETE'});
     expect(button.exists()).toBeTruthy();
     expect(app.state('method')).toBe('GET');
     button.simulate('click');
@@ -49,7 +50,7 @@ describe('Form tests', () => {
   });
 
   it('should update state when URL is entered', () => {
-    let app = mount(<Form />);
+    let app = mount(<Form handler={testFunction} method={'test'} url={'test'}/>);
     let input = app.find('#url');
     input.simulate('change', { target: {value: 'test.com'}});
     expect(app.state('url')).toBe('test.com');

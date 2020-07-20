@@ -12,6 +12,7 @@ import './design/footer.scss';
 import './design/header.scss';
 import './design/form.scss';
 import './design/results.scss';
+import './design/history.scss';
 
 
 

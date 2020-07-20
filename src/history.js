@@ -24,7 +24,7 @@ class History extends React.Component {
     return span.textContent || span.innerText;
   };
 
-  // TODO: implement the handle re-run functionality - should re-run the API call and redirect to results page
+  
   handleReRun = async(event) => {
    
     console.log('handling re-run');
@@ -54,7 +54,7 @@ class History extends React.Component {
     console.log('this is apiCall in history', apiCall);
     return (
       <div id='history'>
-        <p>This is your history!</p>
+        <p id='intro'>This is your API call history. Click on a call to see details.</p>
         <section id='api-calls'>
           <ul>
           {apiCall.map((item, idx) => {
