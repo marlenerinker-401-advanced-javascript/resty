@@ -19,6 +19,7 @@ $font-size: 20px;
   
   .spinner {
     font-size: 75px;
+    margin-top: 10px;
   }
   
   
@@ -75,8 +76,7 @@ $font-size: 20px;
  }
  .radio-toolbar input[type="radio"]:checked + label {
    border: 2px dotted grey;
-  // background-color: grey;
-  // color: white;
+
  }
  .radio-toolbar input[type="radio"]:focus + label {
   background-color: grey;

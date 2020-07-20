@@ -30,23 +30,6 @@ class Form extends React.Component {
     event.preventDefault();
     this.setState({method: event.target.value});
   }
-
-  // componentDidUpdate() {
-  //   console.log(this.state.method);
-  //   if (this.state.method === 'GET') {
-  //     this.getButton.current.select();
-  //   }
-  //   if (this.state.method === 'POST') {
-  //     this.postButton.current.select();
-  //   }
-  //   // if (this.state.method === 'PUT') {
-  //   //   this.putButton.current.focus();
-  //   // }
-  //   // if (this.state.method === 'DELETE') {
-  //   //   this.deleteButton.current.focus();
-  //   // }
-   
-  // }
   
 
   

@@ -55,13 +55,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <BrowserRouter basename="/resty">
           <Header />
-          <Route exact path="/">
+          <Route  exact path="/">
             <Form handler={this.handleForm} method={this.state.method} url={this.state.url}/>
             <Results headers={this.state.headers} data={this.state.data} archive={this.state.archive} populate={this.populateForm}/>
           </Route>
-          <Route exact path="/history">
+          <Route  exact path="/history">
             <History archive={this.state.archive} populate={this.populateForm}/>
           </Route>
           <Footer />
