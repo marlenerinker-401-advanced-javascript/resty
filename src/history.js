@@ -18,9 +18,9 @@ class History extends React.Component {
     this.props.history.push('/');
   }
 
-  extractContent = (s) => {
-    var span = document.createElement('span');
-    span.innerHTML = s;
+  extractContent = (val) => {
+    let span = document.createElement('span');
+    span.innerHTML = val;
     return span.textContent || span.innerText;
   };
 
