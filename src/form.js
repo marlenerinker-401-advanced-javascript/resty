@@ -81,6 +81,7 @@ class Form extends React.Component {
     }  
        
   }
+  //deprecated function that still works with current version of React (John Cokos suggested that I use this.)
   UNSAFE_componentWillReceiveProps(nextProps){
     if(nextProps.url!==this.props.url){
       this.setState({url: nextProps.url });  
